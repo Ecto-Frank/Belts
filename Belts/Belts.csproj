@@ -1,7 +1,38 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Qualnet_Pages\**" />
+    <Compile Remove="Services\**" />
+    <Content Remove="Qualnet_Pages\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Qualnet_Pages\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Qualnet_Pages\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\BeltColorExtensions.cs" />
+    <Compile Remove="Extensions\CleanCoalSiloExtensions.cs" />
+    <Compile Remove="Extensions\CutterColorExtensions.cs" />
+    <Compile Remove="Extensions\DisplayExtensions.cs" />
+    <Compile Remove="Extensions\EtiExtensions.cs" />
+    <Compile Remove="Extensions\IEnumerableExtensions.cs" />
+    <Compile Remove="Extensions\IsRunningColorExtensions.cs" />
+    <Compile Remove="Extensions\ParentApplicationExtenstions.cs" />
+    <Compile Remove="Extensions\RawCoalBunkerExtensions.cs" />
+    <Compile Remove="Extensions\RawCoalSiloExtensions.cs" />
+    <Compile Remove="Extensions\RoundExtensions.cs" />
+    <Compile Remove="Extensions\SabiaExtensions.cs" />
+    <Compile Remove="Extensions\SalesOrderLoadTargetExtensions.cs" />
+    <Compile Remove="Extensions\ScaleColorExtensions.cs" />
+    <Compile Remove="Extensions\SiloColorExtensions.cs" />
+    <Compile Remove="Extensions\StringExtensions.cs" />
+    <Compile Remove="Extensions\UnixDateExtensions.cs" />
+  </ItemGroup>
 
 </Project>
