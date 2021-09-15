@@ -1,0 +1,164 @@
+﻿@page
+@model Belts.Pages.BaileyBeltModel
+@{
+    ViewData["Title"] = "Bailey Belts";
+}
+<style>
+
+    th {
+        padding: 10px;
+        text-align: center
+    }
+
+    button {
+        margin: 5px
+    }
+
+    .centered {
+        text-align: center;
+    }
+
+    .table-bordered {
+        margin: 10px
+    }
+</style>
+<div>
+    <h3>@Model.MineName Belts</h3>
+    <h5>@Model.CurrentDateTime</h5>
+</div>
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <table id="CM" class="table-bordered">
+            <thead>
+                <tr>
+                    <th class="">Belt</th>
+                    <th>Type</th>
+                    <th>State</th>
+                    <th>Time On</th>
+                    <th>Time Off</th>
+                    <th>?</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var belt in Model.CMBelts)
+                {
+
+                    <tr>
+                        <td>@belt.Name</td>
+                        <td class="centered">@belt.Type</td>
+                        <td class="centered">@belt.State</td>
+                        <td class="centered">@belt.TimeOn</td>
+                        <td class="centered">@belt.TimeOff</td>
+                        <td class="centered">@belt.Uncertain</td>
+                        <td class="centered bg-success">On</td>
+                        <td class="centered">Off</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <table id="LW" class="table-bordered">
+            <thead>
+                <tr>
+                    <th>Belt</th>
+                    <th>Type</th>
+                    <th>State</th>
+                    <th>Time On</th>
+                    <th>Time Off</th>
+                    <th>?</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var belt in Model.LongWallBelts)
+                {
+                    <tr>
+                        <td>@belt.Name</td>
+                        <td class="centered">@belt.Type</td>
+                        <td class="centered @(belt.IsOn? "bg-success" : "bg-danger")">@belt.State</td>
+                        <td class="centered">@belt.TimeOn</td>
+                        <td class="centered">@belt.TimeOff</td>
+                        <td class="centered">@belt.Uncertain</td>
+                        <td class="centered">On</td>
+                        <td class="centered">Off</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div id="Button Group 1">
+            <button class="btn btn-primary">Previous Day</button>
+            <button class="btn btn-outline-success">Log</button>
+        </div>
+        <div id="Button Group 2">
+            <button>Mine Map</button>
+            <button>Raw Coal Silos</button>
+        </div>
+        <div>
+            <p style="margin-top:25px">
+                Outby System Availabilty
+            </p>
+            <p>From: @Model.RecentMonday thru @Model.CurrentDateTime </p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Belt</th>
+                        <th>Time On</th>
+                        <th>Time Off</th>
+                        <th>?</th>
+                        <th>Avail</th>
+                        <th>Max Avail</th>
+                        <th>Min Avail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var belt in Model.BeltAvailability)
+                    {
+                        <tr>
+                            <td>@belt.Name</td>
+                            <td class="centered">@belt.TimeOff</td>
+                            <td class="centered">@belt.TimeOn</td>
+                            <td class="centered">@belt.Uncertain</td>
+                            <td class="centered">@belt.Availability</td>
+                            <td class="centered">@belt.MaxAvailability</td>
+                            <td class="centered">@belt.MinAvailability</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <th>Belt</th>
+                    <th>Type</th>
+                    <th>State</th>
+                    <th>Time On</th>
+                    <th>Time Off</th>
+                    <th>?</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var belt in Model.MainBelts)
+                {
+                    <tr>
+                        <td>@belt.Name</td>
+                        <td class="centered">@belt.Type</td>
+                        <td class="centered">@belt.State</td>
+                        <td class="centered">@belt.TimeOn</td>
+                        <td class="centered">@belt.TimeOff</td>
+                        <td class="centered">@belt.Uncertain</td>
+                        <td class="centered">On</td>
+                        <td class="centered">Off</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

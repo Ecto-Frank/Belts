@@ -6,13 +6,9 @@
 
   <ItemGroup>
     <Compile Remove="Qualnet_Pages\**" />
-    <Compile Remove="Services\**" />
     <Content Remove="Qualnet_Pages\**" />
-    <Content Remove="Services\**" />
     <EmbeddedResource Remove="Qualnet_Pages\**" />
-    <EmbeddedResource Remove="Services\**" />
     <None Remove="Qualnet_Pages\**" />
-    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>

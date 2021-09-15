@@ -16,7 +16,8 @@ namespace Belts.Pages
         {
             _logger = logger;
         }
-
+        [BindProperty(SupportsGet =true)]
+        public string Mine { get; set; }
         public void OnGet()
         {
         }
