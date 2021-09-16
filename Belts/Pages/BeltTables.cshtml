@@ -3,32 +3,13 @@
 @{
     ViewData["Title"] = "Bailey Belts";
 }
-<style>
-
-    th {
-        padding: 10px;
-        text-align: center
-    }
-
-    button {
-        margin: 5px
-    }
-
-    .centered {
-        text-align: center;
-    }
-
-    .table-bordered {
-        margin: 10px
-    }
-</style>
 <div>
     <h3>@Model.MineName Belts</h3>
     <h5>@Model.CurrentDateTime</h5>
 </div>
 <div class="row">
     <div class="col-12 col-lg-6">
-        <table id="CM" class="table-bordered">
+        <table id="CM" class="table table-bordered">
             <thead>
                 <tr>
                     <th class="">Belt</th>
@@ -48,17 +29,17 @@
                     <tr>
                         <td>@belt.Name</td>
                         <td class="centered">@belt.Type</td>
-                        <td class="centered">@belt.State</td>
+                        <td class="centered @belt.SetStateCSS(belt)">@belt.State</td>
                         <td class="centered">@belt.TimeOn</td>
                         <td class="centered">@belt.TimeOff</td>
                         <td class="centered">@belt.Uncertain</td>
-                        <td class="centered bg-success">On</td>
+                        <td class="centered">On</td>
                         <td class="centered">Off</td>
                     </tr>
                 }
             </tbody>
         </table>
-        <table id="LW" class="table-bordered">
+        <table id="LW" class="table table-bordered">
             <thead>
                 <tr>
                     <th>Belt</th>
@@ -77,7 +58,7 @@
                     <tr>
                         <td>@belt.Name</td>
                         <td class="centered">@belt.Type</td>
-                        <td class="centered @(belt.IsOn? "bg-success" : "bg-danger")">@belt.State</td>
+                        <td class="centered @belt.SetStateCSS(belt)">@belt.State</td>
                         <td class="centered">@belt.TimeOn</td>
                         <td class="centered">@belt.TimeOff</td>
                         <td class="centered">@belt.Uncertain</td>
@@ -88,13 +69,13 @@
             </tbody>
         </table>
 
-        <div id="Button Group 1">
-            <button class="btn btn-primary">Previous Day</button>
-            <button class="btn btn-outline-success">Log</button>
+        <div id="Button Group 1" >
+            <button class="btn btn-secondary mb-2">Previous Day</button>
+            <button class="btn btn-secondary mb-2">Log</button>
         </div>
-        <div id="Button Group 2">
-            <button>Mine Map</button>
-            <button>Raw Coal Silos</button>
+        <div id="Button Group 2" >
+            <button class="btn btn-light btn-outline-dark mt-2">Mine Map</button>
+            <button class="btn btn-light btn-outline-dark mt-2">Raw Coal Silos</button>
         </div>
         <div>
             <p style="margin-top:25px">
@@ -131,7 +112,7 @@
         </div>
     </div>
     <div class="col-12 col-lg-6">
-        <table class="table-bordered">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Belt</th>
@@ -150,7 +131,7 @@
                     <tr>
                         <td>@belt.Name</td>
                         <td class="centered">@belt.Type</td>
-                        <td class="centered">@belt.State</td>
+                        <td class="centered @belt.SetStateCSS(belt)">@belt.State</td>
                         <td class="centered">@belt.TimeOn</td>
                         <td class="centered">@belt.TimeOff</td>
                         <td class="centered">@belt.Uncertain</td>

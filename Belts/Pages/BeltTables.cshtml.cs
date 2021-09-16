@@ -46,8 +46,7 @@ namespace Belts.Pages
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public bool IsOn { get; set; }
-        public string StatusCss => this.IsOn ? "bg-success" : "bg-danger";
+        public string StateCSS { get; set; }
         public string State { get; set; }
         public string TimeOn { get; set; }
         public string TimeOff { get; set; }
@@ -55,7 +54,27 @@ namespace Belts.Pages
 
         public Belt()
         {
+          
+        }
 
+        public string SetStateCSS(Belt belt)
+        {
+            if (belt.State == "ON")
+            {
+               return belt.StateCSS = "bg-success";
+            }
+            if (belt.State == "OFF")
+            {
+               return belt.StateCSS = "bg-danger";
+            }
+            if (belt.State == "Unknown")
+            {
+               return belt.StateCSS = "bg-warning";
+            }
+            else
+            {
+                return "";
+            }
         }
     }
     public class BeltAvail
